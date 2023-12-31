@@ -150,6 +150,7 @@ button:hover{
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 5px 0px;
   height: fit-content;
 }
 
@@ -417,7 +418,8 @@ footer{
     height: fit-content;
     flex-direction: column;
     gap: 35px;
-    margin: 50px 0px;
+    /* margin: 50px 0px; */
+    /* background-color: red; */
     max-width: 450px;
   }
   .about-proficiency{
