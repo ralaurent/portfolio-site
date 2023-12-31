@@ -156,7 +156,6 @@ button:hover{
 
 .about-content{
   height: 550px;
-  background-color: yellow;
   width: 90%;
   max-width: 1000px;
   display: flex;
@@ -207,7 +206,6 @@ button:hover{
   gap: 20px;
   width: 100%;
   min-width: 400px;
-  background-color: green;
 }
 
 .about-proficiency-title{
@@ -220,7 +218,6 @@ button:hover{
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background-color: red;
   grid-template-rows: auto;
   gap: 29px;
 }
@@ -421,8 +418,7 @@ footer{
     height: fit-content;
     flex-direction: column;
     gap: 35px;
-    /* margin: 50px 0px; */
-    /* background-color: red; */
+    margin: 50px 0px;
     max-width: 450px;
     max-height: fit-content;
   }
