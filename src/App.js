@@ -98,11 +98,8 @@ function App() {
     <div className="container">
       <nav id="navbar">
       <div className="nav">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
-            <path d="M15 15L15 0H22.5C26.6421 0 30 3.35786 30 7.5V7.5C30 11.6421 26.6421 15 22.5 15H15Z" fill={theme === "light" ? "black" : "white"}/>
-            <path d="M0 7.5C0 3.35786 3.35787 0 7.5 0H15V15H0V7.5Z" fill={theme === "light" ? "black" : "white"}/>
-            <path d="M15 22.5C15 18.3579 11.6421 15 7.5 15H0V30H15V22.5Z" fill={theme === "light" ? "black" : "white"}/>
-            <path d="M30 15H15V22.5C15 26.6421 18.3579 30 22.5 30H30V15Z" fill={theme === "light" ? "black" : "white"}/>
+          <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.625 0.5C3.41383 0.5 0 3.91383 0 8.125V15.75V31H15.25V23.375C15.25 27.5862 18.6638 31 22.875 31H30.5V15.75H22.875C27.0862 15.75 30.5 12.3362 30.5 8.125C30.5 3.91383 27.0862 0.5 22.875 0.5H15.25H7.625ZM15.25 15.75V23.375C15.25 19.1638 11.8362 15.75 7.625 15.75H15.25Z" fill={theme === "light" ? "black" : "white"}/>
           </svg>
           <div className="nav-buttons">
             <button onClick={scrollToAbout} className={theme === "light" ? "empty-button light" : "empty-button"}>about</button>
@@ -161,12 +158,9 @@ function App() {
         </div>
       </div>
       <footer>
-      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
-        <path d="M10.5 10.5V0H15.75C18.6495 0 21 2.35051 21 5.25V5.25C21 8.14949 18.6495 10.5 15.75 10.5H10.5Z" fill="#48494C"/>
-        <path d="M0 5.25C0 2.35051 2.35051 0 5.25 0H10.5V10.5H0V5.25Z" fill="#48494C"/>
-        <path d="M10.5 15.75C10.5 12.8505 8.14949 10.5 5.25 10.5H0V21H10.5V15.75Z" fill="#48494C"/>
-        <path d="M21 10.5H10.5V15.75C10.5 18.6495 12.8505 21 15.75 21H21V10.5Z" fill="#48494C"/>
-      </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="22" viewBox="0 0 21 22" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M5.25 0.5C2.35051 0.5 0 2.85051 0 5.75V11V21.5H10.5V16.25C10.5 19.1495 12.8505 21.5 15.75 21.5H21V11H15.75C18.6495 11 21 8.6495 21 5.75C21 2.85051 18.6495 0.5 15.75 0.5H10.5H5.25ZM10.5 11V16.25C10.5 13.3505 8.1495 11 5.25 11H10.5Z" fill="#48494C"/>
+        </svg>
         <div className="footer-content">Designed and Created by <b>Ralph Laurent</b></div>
       </footer>
      {viewingHeader && <div onClick={scrollToAbout} className="go-down">
