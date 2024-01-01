@@ -118,7 +118,7 @@ function App() {
         <div id="content" className="about-content">
           <div className="about-description">
             <div className="about-description-title">Ralph Laurent</div>
-            <div className="about-description-header">Founder of <span onClick={() => redirectToExternalSite("")} className="about-description-header ninja">Interview Ninja</span></div>
+            <div className="about-description-header">Founder of <span onClick={() => redirectToExternalSite("https://interviewninja.dev/")} className="about-description-header ninja">Interview Ninja</span></div>
             <div className="about-description-subheader">UI/UX Designer, Full Stack Engineer, and AI enthusiast. Welcome to my digital space.</div>
           </div>
           <div className="about-proficiency">
@@ -144,13 +144,13 @@ function App() {
         <div className="projects-body-title">Projects</div>
         <div className="projects-logos">
           <div className="projects-slide">
-            <img onClick={() => redirectToExternalSite("")} data-tooltip-id="interviewninja" src="https://i.ibb.co/f0ByMr4/Group-8795.png"/>
+            <img onClick={() => redirectToExternalSite("https://interviewninja.dev/")} data-tooltip-id="interviewninja" src="https://i.ibb.co/f0ByMr4/Group-8795.png"/>
             <img onClick={() => redirectToExternalSite("https://twitch-discord-clone.onrender.com/")} data-tooltip-id="bitbyte" src="https://i.ibb.co/LdfrgSg/Group-8794.png"/>
             <img onClick={() => redirectToExternalSite("https://api-project-y82w.onrender.com/")} data-tooltip-id="fairbnb" src="https://i.ibb.co/VmQ1bFt/Group-8796.png"/>
             <img onClick={() => redirectToExternalSite("https://github.com/ralaurent")} data-tooltip-id="ralaurent" src="https://i.ibb.co/ZBdhBtS/Group-8797.png"/>
           </div>
           <div className="projects-slide">
-            <img onClick={() => redirectToExternalSite("")} data-tooltip-id="interviewninja" src="https://i.ibb.co/f0ByMr4/Group-8795.png"/>
+            <img onClick={() => redirectToExternalSite("https://interviewninja.dev/")} data-tooltip-id="interviewninja" src="https://i.ibb.co/f0ByMr4/Group-8795.png"/>
             <img onClick={() => redirectToExternalSite("https://twitch-discord-clone.onrender.com/")} data-tooltip-id="bitbyte" src="https://i.ibb.co/LdfrgSg/Group-8794.png"/>
             <img onClick={() => redirectToExternalSite("https://api-project-y82w.onrender.com/")} data-tooltip-id="fairbnb" src="https://i.ibb.co/VmQ1bFt/Group-8796.png"/>
             <img onClick={() => redirectToExternalSite("https://github.com/ralaurent")} data-tooltip-id="ralaurent" src="https://i.ibb.co/ZBdhBtS/Group-8797.png"/>
