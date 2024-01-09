@@ -19,7 +19,7 @@ function App() {
     };
 
     window.addEventListener('click', handleClickOutside);
-
+ 
     return () => {
       window.removeEventListener('click', handleClickOutside);
     };
