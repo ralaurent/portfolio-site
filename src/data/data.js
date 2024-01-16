@@ -63,4 +63,12 @@ export const data = [
         language: "Tailwind",
         proficiency: 80
     },
+    {
+        language: "Java",
+        proficiency: 60
+    },
+    {
+        language: "C++",
+        proficiency: 65
+    },
 ]

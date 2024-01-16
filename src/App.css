@@ -155,10 +155,11 @@ button:hover{
 }
 
 .about-content{
-  height: 550px;
+  height: fit-content;
   width: 90%;
   max-width: 1000px;
   display: flex;
+  align-items: center;
 }
 
 .about-description{
@@ -199,7 +200,7 @@ button:hover{
 }
 
 .about-proficiency{
-  height: 100%;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
