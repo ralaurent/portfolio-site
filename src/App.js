@@ -145,12 +145,14 @@ function App() {
         <div className="projects-logos">
           <div className="projects-slide">
             <img onClick={() => redirectToExternalSite("https://interviewninja.dev/")} data-tooltip-id="interviewninja" src="https://i.ibb.co/f0ByMr4/Group-8795.png"/>
+            <img onClick={() => redirectToExternalSite("https://breadit-qg9l.onrender.com/")} data-tooltip-id="breadit" src="https://i.ibb.co/prfcMbm/Group-8799-1.png"/>
             <img onClick={() => redirectToExternalSite("https://twitch-discord-clone.onrender.com/")} data-tooltip-id="bitbyte" src="https://i.ibb.co/LdfrgSg/Group-8794.png"/>
             <img onClick={() => redirectToExternalSite("https://api-project-y82w.onrender.com/")} data-tooltip-id="fairbnb" src="https://i.ibb.co/VmQ1bFt/Group-8796.png"/>
             <img onClick={() => redirectToExternalSite("https://github.com/ralaurent")} data-tooltip-id="ralaurent" src="https://i.ibb.co/ZBdhBtS/Group-8797.png"/>
           </div>
           <div className="projects-slide">
             <img onClick={() => redirectToExternalSite("https://interviewninja.dev/")} data-tooltip-id="interviewninja" src="https://i.ibb.co/f0ByMr4/Group-8795.png"/>
+            <img onClick={() => redirectToExternalSite("https://breadit-qg9l.onrender.com/")} data-tooltip-id="breadit" src="https://i.ibb.co/prfcMbm/Group-8799-1.png"/>
             <img onClick={() => redirectToExternalSite("https://twitch-discord-clone.onrender.com/")} data-tooltip-id="bitbyte" src="https://i.ibb.co/LdfrgSg/Group-8794.png"/>
             <img onClick={() => redirectToExternalSite("https://api-project-y82w.onrender.com/")} data-tooltip-id="fairbnb" src="https://i.ibb.co/VmQ1bFt/Group-8796.png"/>
             <img onClick={() => redirectToExternalSite("https://github.com/ralaurent")} data-tooltip-id="ralaurent" src="https://i.ibb.co/ZBdhBtS/Group-8797.png"/>
@@ -187,6 +189,11 @@ function App() {
         id="fairbnb"
         place="top"
         content="FairBnB - airbnb.com clone"
+      />
+      <ReactTooltip
+        id="breadit"
+        place="top"
+        content="Breadit - reddit.com"
       />
       <ReactTooltip
         id="ralaurent"
