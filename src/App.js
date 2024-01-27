@@ -119,7 +119,7 @@ function App() {
           <div className="about-description">
             <div className="about-description-title">Ralph Laurent</div>
             <div className="about-description-header">Founder of <span onClick={() => redirectToExternalSite("https://interviewninja.dev/")} className="about-description-header ninja">Interview Ninja</span></div>
-            <div className="about-description-subheader">UI/UX Designer, Full Stack Engineer, and AI enthusiast. Welcome to my digital space.</div>
+            <div className="about-description-subheader">UI/UX Designer, Full-stack Engineer, and AI enthusiast. Welcome to my digital space.</div>
           </div>
           <div className="about-proficiency">
             <div className="about-proficiency-title">My proficiencies</div>
@@ -193,7 +193,7 @@ function App() {
       <ReactTooltip
         id="breadit"
         place="top"
-        content="Breadit - reddit.com"
+        content="Breadit - reddit.com clone"
       />
       <ReactTooltip
         id="ralaurent"
