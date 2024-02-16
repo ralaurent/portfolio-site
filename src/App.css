@@ -355,10 +355,11 @@ button:hover{
 }
 
 .contact-body{
-  padding: 10px 100px;
+  padding-bottom: 40px;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  /* background-color: red; */
 }
 
 .contact-body-title{
@@ -366,6 +367,48 @@ button:hover{
   font-weight: bold;
   color: white;
   /* text-align: left; */
+}
+
+.contact-content{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 600px;
+  gap: 20px;
+}
+
+.contact-input{
+  height: 38px;
+  border: none;
+  background-color: black;
+  border-bottom: 1px solid white;
+  color: white;
+  outline: none;
+}
+
+.contact-textarea{
+  height: 88px;
+  resize: none;
+  border: none;
+  background-color: black;
+  border-bottom: 1px solid white;
+  color: white;
+  outline: none;
+}
+
+.contact-button{
+  width: fit-content;
+  border: none;
+  border-radius: 35px;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 18px;
+  gap: 6px;
+  padding: 8px 16px;
+  color: white
 }
 
 @keyframes slide{

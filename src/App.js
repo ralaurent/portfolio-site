@@ -1,5 +1,5 @@
 import  React, { useState, useEffect, useRef } from "react"
-import { ArrowDown, Menu } from 'lucide-react';
+import { ArrowDown, Menu, Send} from 'lucide-react';
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { data } from './data/data.js'
 import './App.css';
@@ -35,7 +35,18 @@ function App() {
   <feBlend mode="color-dodge" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" in2="blur" result="blend"></feBlend>
   
 </filter></defs><rect width="700" height="700" fill="url(#ffflux-gradient)" filter="url(#ffflux-filter)"></rect></svg>
-`;
+`
+  const svgButtonMarkup = `
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 700 700" width="700" height="700"><defs><radialGradient id="ffflux-gradient">
+      <stop offset="0%" stop-color="#0037ff"></stop>
+      <stop offset="100%" stop-color="#7000ff"></stop>
+    </radialGradient><filter id="ffflux-filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+  <feTurbulence type="fractalNoise" baseFrequency="0.005 0.003" numOctaves="2" seed="2" stitchTiles="stitch" x="0%" y="0%" width="100%" height="100%" result="turbulence"></feTurbulence>
+  <feGaussianBlur stdDeviation="20 0" x="0%" y="0%" width="100%" height="100%" in="turbulence" edgeMode="duplicate" result="blur"></feGaussianBlur>
+  <feBlend mode="color-dodge" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" in2="blur" result="blend"></feBlend>
+  
+</filter></defs><rect width="150" height="45" fill="url(#ffflux-gradient)" filter="url(#ffflux-filter)"></rect></svg>
+  `
 
   const changeTheme = () => {
     console.log("scrolling ")
@@ -90,6 +101,18 @@ function App() {
     }
   }
 
+  function scrollToContact() {
+    if(isOpen) setIsOpen(!isOpen)
+    const element = document.getElementById("contact");
+  
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  }
+
   const redirectToExternalSite = (url) => {
     window.location.href = url;
   }
@@ -118,7 +141,7 @@ function App() {
           <div className="nav-buttons">
             <button onClick={scrollToAbout} className={theme === "light" ? "empty-button light" : "empty-button"}>about</button>
             <button onClick={scrollToProjects} className={theme === "light" ? "empty-button light" : "empty-button"}>projects</button>
-            <button className={theme === "light" ? "filled-button light": "filled-button"}>Let's talk.</button>
+            <button onClick={scrollToContact} className={theme === "light" ? "filled-button light": "filled-button"}>Let's talk.</button>
           </div>
           <Menu onClick={openSlider} className={theme === "light" ? "menu light" : "menu"}/>
       </div>
@@ -176,12 +199,14 @@ function App() {
         </div>
       </div>
       <div id="contact" className="contact-body">
+        <div className="contact-content">
         <div className="contact-body-title">Contact</div>
-        <div>
-          <input></input>
-          <input></input>
-          <textarea></textarea>
-          <button></button>
+          <input maxLength={50} placeholder="Your name" className="contact-input"></input>
+          <input maxLength={100} placeholder="Your email" className="contact-input"></input>
+          <textarea maxLength={500} placeholder="Your message" className="contact-textarea"></textarea>
+          <button style={{backgroundImage: `url('data:image/svg+xml;base64,${btoa(svgButtonMarkup)}')`}} className="contact-button"> Send
+          <Send/>
+          </button>
         </div>
       </div>
       <footer>
