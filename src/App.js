@@ -25,13 +25,27 @@ function App() {
     };
   }, []);
 
+  const svgMarkup = `
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 700 700" width="700" height="700"><defs><radialGradient id="ffflux-gradient">
+      <stop offset="0%" stop-color="#0de449"></stop>
+      <stop offset="100%" stop-color="hsl(227, 100%, 50%)"></stop>
+    </radialGradient><filter id="ffflux-filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+  <feTurbulence type="fractalNoise" baseFrequency="0.004 0.006" numOctaves="2" seed="112" stitchTiles="stitch" x="0%" y="0%" width="100%" height="100%" result="turbulence"></feTurbulence>
+  <feGaussianBlur stdDeviation="29 0" x="0%" y="0%" width="100%" height="100%" in="turbulence" edgeMode="duplicate" result="blur"></feGaussianBlur>
+  <feBlend mode="color-dodge" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" in2="blur" result="blend"></feBlend>
+  
+</filter></defs><rect width="700" height="700" fill="url(#ffflux-gradient)" filter="url(#ffflux-filter)"></rect></svg>
+`;
+
   const changeTheme = () => {
+    console.log("scrolling ")
     const about = document.getElementById("about")
     const navBar = document.getElementById("navbar")
     const content = document.getElementById("content")
     const slider = document.getElementById("slider")
     if(window.scrollY >= about.offsetTop - 100) {
-      about.style.backgroundImage = "url('https://i.ibb.co/yS05Xnp/Group-8788.png')"
+      // about.style.backgroundImage = "url('https://i.ibb.co/yS05Xnp/Group-8788.png')"
+      about.style.backgroundImage = `url('data:image/svg+xml;base64,${btoa(svgMarkup)}')`;
       about.style.backgroundSize = "cover"
       about.style.backgroundPosition = "center"
       about.style.backgroundRepeat = "no-repeat"
@@ -145,25 +159,36 @@ function App() {
         <div className="projects-logos">
           <div className="projects-slide">
             <img onClick={() => redirectToExternalSite("https://interviewninja.dev/")} data-tooltip-id="interviewninja" src="https://i.ibb.co/f0ByMr4/Group-8795.png"/>
+            <img onClick={() => redirectToExternalSite("")} data-tooltip-id="sendmo" src="https://i.ibb.co/dQFG09N/Group-8805.png"/>
+            <img onClick={() => redirectToExternalSite("https://api-project-y82w.onrender.com/")} data-tooltip-id="fairbnb" src="https://i.ibb.co/VmQ1bFt/Group-8796.png"/>
             <img onClick={() => redirectToExternalSite("https://breadit-qg9l.onrender.com/")} data-tooltip-id="breadit" src="https://i.ibb.co/prfcMbm/Group-8799-1.png"/>
             <img onClick={() => redirectToExternalSite("https://twitch-discord-clone.onrender.com/")} data-tooltip-id="bitbyte" src="https://i.ibb.co/LdfrgSg/Group-8794.png"/>
-            <img onClick={() => redirectToExternalSite("https://api-project-y82w.onrender.com/")} data-tooltip-id="fairbnb" src="https://i.ibb.co/VmQ1bFt/Group-8796.png"/>
             <img onClick={() => redirectToExternalSite("https://github.com/ralaurent")} data-tooltip-id="ralaurent" src="https://i.ibb.co/ZBdhBtS/Group-8797.png"/>
           </div>
           <div className="projects-slide">
             <img onClick={() => redirectToExternalSite("https://interviewninja.dev/")} data-tooltip-id="interviewninja" src="https://i.ibb.co/f0ByMr4/Group-8795.png"/>
+            <img onClick={() => redirectToExternalSite("")} data-tooltip-id="sendmo" src="https://i.ibb.co/dQFG09N/Group-8805.png"/>
+            <img onClick={() => redirectToExternalSite("https://api-project-y82w.onrender.com/")} data-tooltip-id="fairbnb" src="https://i.ibb.co/VmQ1bFt/Group-8796.png"/>
             <img onClick={() => redirectToExternalSite("https://breadit-qg9l.onrender.com/")} data-tooltip-id="breadit" src="https://i.ibb.co/prfcMbm/Group-8799-1.png"/>
             <img onClick={() => redirectToExternalSite("https://twitch-discord-clone.onrender.com/")} data-tooltip-id="bitbyte" src="https://i.ibb.co/LdfrgSg/Group-8794.png"/>
-            <img onClick={() => redirectToExternalSite("https://api-project-y82w.onrender.com/")} data-tooltip-id="fairbnb" src="https://i.ibb.co/VmQ1bFt/Group-8796.png"/>
             <img onClick={() => redirectToExternalSite("https://github.com/ralaurent")} data-tooltip-id="ralaurent" src="https://i.ibb.co/ZBdhBtS/Group-8797.png"/>
           </div>
+        </div>
+      </div>
+      <div id="contact" className="contact-body">
+        <div className="contact-body-title">Contact</div>
+        <div>
+          <input></input>
+          <input></input>
+          <textarea></textarea>
+          <button></button>
         </div>
       </div>
       <footer>
         <svg xmlns="http://www.w3.org/2000/svg" width="21" height="22" viewBox="0 0 21 22" fill="none">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M5.25 0.5C2.35051 0.5 0 2.85051 0 5.75V11V21.5H10.5V16.25C10.5 19.1495 12.8505 21.5 15.75 21.5H21V11H15.75C18.6495 11 21 8.6495 21 5.75C21 2.85051 18.6495 0.5 15.75 0.5H10.5H5.25ZM10.5 11V16.25C10.5 13.3505 8.1495 11 5.25 11H10.5Z" fill="#48494C"/>
         </svg>
-        <div className="footer-content">Designed and Created by <b>Ralph Laurent</b></div>
+        <div className="footer-content">Designed and Developed by <b>Ralph Laurent</b></div>
       </footer>
      {viewingHeader && <div onClick={scrollToAbout} className="go-down">
         <ArrowDown className="arrow-down"/>
@@ -194,6 +219,11 @@ function App() {
         id="breadit"
         place="top"
         content="Breadit - reddit.com clone"
+      />
+      <ReactTooltip
+        id="sendmo"
+        place="top"
+        content="Sendmo - venmo.com clone"
       />
       <ReactTooltip
         id="ralaurent"

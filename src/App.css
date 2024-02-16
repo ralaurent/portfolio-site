@@ -241,7 +241,7 @@ button:hover{
   height: 12px;
   width: 100%;
   border-radius: 50px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.7);
   position: relative;
 }
 
@@ -352,6 +352,20 @@ button:hover{
 
 .projects-slide img:hover{
   cursor: pointer;
+}
+
+.contact-body{
+  padding: 10px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-body-title{
+  font-size: 27px;
+  font-weight: bold;
+  color: white;
+  /* text-align: left; */
 }
 
 @keyframes slide{
