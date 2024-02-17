@@ -281,6 +281,21 @@ button:hover{
   animation: shimmer 5s infinite linear;
 }
 
+.responses{
+  height: 17px;
+  margin: -8px;
+}
+
+.success{
+  font-size: 14px;
+  color: white;
+}
+
+.error{
+  font-size: 14px;
+  color: red;
+}
+
 @keyframes shimmer {
   0% {
     background-position: -200% 0;
@@ -355,7 +370,7 @@ button:hover{
 }
 
 .contact-body{
-  padding-bottom: 40px;
+  padding: 40px 0px;
   display: flex;
   align-items: center;
   justify-content: center;

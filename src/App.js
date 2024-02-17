@@ -3,8 +3,13 @@ import { ArrowDown, Menu, Send} from 'lucide-react';
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { data } from './data/data.js'
 import './App.css';
+import axios from "axios";
 
 function App() {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [message, setMessage] = useState("")
+  const [response, setResponse] = useState("")
   const [isEmpty, setIsEmpty] = useState(0)
   const [theme, setTheme] = useState("")
   const [isOpen, setIsOpen] = useState(false)
@@ -122,6 +127,26 @@ function App() {
     setIsOpen(true)
   }
 
+  const submitToGS = async (e) => {
+    e.preventDefault()
+    const data = {
+      Name: name,
+      Email: email,
+      Message: message
+    }
+    if(name.length && email.length && message.length){
+      const response = await axios.post(process.env.REACT_APP_GOOGLE_SHEETS_URL, data)
+      if(response.status == 200){
+        setName("")
+        setEmail("")
+        setMessage("")
+        setResponse({ success: "Message successfully sent!" })
+      }
+    }else{
+      setResponse({ error: "Fields can't be empty!" })
+    }
+  }
+
   useEffect(() => {
     const timeout = setInterval(() => {
       if(isEmpty >= 0) setIsEmpty(isEmpty => isEmpty + 1)
@@ -136,7 +161,7 @@ function App() {
       <nav id="navbar">
       <div className="nav">
           <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.625 0.5C3.41383 0.5 0 3.91383 0 8.125V15.75V31H15.25V23.375C15.25 27.5862 18.6638 31 22.875 31H30.5V15.75H22.875C27.0862 15.75 30.5 12.3362 30.5 8.125C30.5 3.91383 27.0862 0.5 22.875 0.5H15.25H7.625ZM15.25 15.75V23.375C15.25 19.1638 11.8362 15.75 7.625 15.75H15.25Z" fill={theme === "light" ? "black" : "white"}/>
+            <path fillRule="evenodd" clipRule="evenodd" d="M7.625 0.5C3.41383 0.5 0 3.91383 0 8.125V15.75V31H15.25V23.375C15.25 27.5862 18.6638 31 22.875 31H30.5V15.75H22.875C27.0862 15.75 30.5 12.3362 30.5 8.125C30.5 3.91383 27.0862 0.5 22.875 0.5H15.25H7.625ZM15.25 15.75V23.375C15.25 19.1638 11.8362 15.75 7.625 15.75H15.25Z" fill={theme === "light" ? "black" : "white"}/>
           </svg>
           <div className="nav-buttons">
             <button onClick={scrollToAbout} className={theme === "light" ? "empty-button light" : "empty-button"}>about</button>
@@ -162,8 +187,7 @@ function App() {
             <div className="about-proficiency-title">My proficiencies</div>
             <div className="about-proficiency-grid">
             {data.map((language) => (
-              <>
-                <div className="about-proficiency-content">
+                <div key={language.language} className="about-proficiency-content">
                   <div className="about-proficiency-bar-title">{language.language}</div>
                   <div className="about-proficiency-bar">
                     <div className="about-proficiency-fill-bar" style={{width: `${language.proficiency}%`}}>
@@ -171,7 +195,6 @@ function App() {
                     </div>
                   </div>
                 </div>
-              </>
             ))}
             </div>
           </div>
@@ -182,7 +205,7 @@ function App() {
         <div className="projects-logos">
           <div className="projects-slide">
             <img onClick={() => redirectToExternalSite("https://interviewninja.dev/")} data-tooltip-id="interviewninja" src="https://i.ibb.co/f0ByMr4/Group-8795.png"/>
-            <img onClick={() => redirectToExternalSite("")} data-tooltip-id="sendmo" src="https://i.ibb.co/dQFG09N/Group-8805.png"/>
+            <img onClick={() => redirectToExternalSite("https://sendmo.onrender.com/")} data-tooltip-id="sendmo" src="https://i.ibb.co/dQFG09N/Group-8805.png"/>
             <img onClick={() => redirectToExternalSite("https://api-project-y82w.onrender.com/")} data-tooltip-id="fairbnb" src="https://i.ibb.co/VmQ1bFt/Group-8796.png"/>
             <img onClick={() => redirectToExternalSite("https://breadit-qg9l.onrender.com/")} data-tooltip-id="breadit" src="https://i.ibb.co/prfcMbm/Group-8799-1.png"/>
             <img onClick={() => redirectToExternalSite("https://twitch-discord-clone.onrender.com/")} data-tooltip-id="bitbyte" src="https://i.ibb.co/LdfrgSg/Group-8794.png"/>
@@ -190,7 +213,7 @@ function App() {
           </div>
           <div className="projects-slide">
             <img onClick={() => redirectToExternalSite("https://interviewninja.dev/")} data-tooltip-id="interviewninja" src="https://i.ibb.co/f0ByMr4/Group-8795.png"/>
-            <img onClick={() => redirectToExternalSite("")} data-tooltip-id="sendmo" src="https://i.ibb.co/dQFG09N/Group-8805.png"/>
+            <img onClick={() => redirectToExternalSite("https://sendmo.onrender.com/")} data-tooltip-id="sendmo" src="https://i.ibb.co/dQFG09N/Group-8805.png"/>
             <img onClick={() => redirectToExternalSite("https://api-project-y82w.onrender.com/")} data-tooltip-id="fairbnb" src="https://i.ibb.co/VmQ1bFt/Group-8796.png"/>
             <img onClick={() => redirectToExternalSite("https://breadit-qg9l.onrender.com/")} data-tooltip-id="breadit" src="https://i.ibb.co/prfcMbm/Group-8799-1.png"/>
             <img onClick={() => redirectToExternalSite("https://twitch-discord-clone.onrender.com/")} data-tooltip-id="bitbyte" src="https://i.ibb.co/LdfrgSg/Group-8794.png"/>
@@ -199,19 +222,23 @@ function App() {
         </div>
       </div>
       <div id="contact" className="contact-body">
-        <div className="contact-content">
+        <form className="contact-content" onSubmit={submitToGS}>
         <div className="contact-body-title">Contact</div>
-          <input maxLength={50} placeholder="Your name" className="contact-input"></input>
-          <input maxLength={100} placeholder="Your email" className="contact-input"></input>
-          <textarea maxLength={500} placeholder="Your message" className="contact-textarea"></textarea>
+          <input maxLength={50} value={name} name="Name" onChange={(e) => setName(e.target.value)} placeholder="Your name" className="contact-input"></input>
+          <input maxLength={100} value={email} name="Email" onChange={(e) => setEmail(e.target.value)} placeholder="Your email" className="contact-input"></input>
+          <textarea maxLength={500} value={message} name="Message" onChange={(e) => setMessage(e.target.value)} placeholder="Your message" className="contact-textarea"></textarea>
+          <div className="responses">
+          { response?.success && <div className="success">{response?.success}</div> }
+          { response?.error && <div className="error">{response?.error}</div> }
+          </div>
           <button style={{backgroundImage: `url('data:image/svg+xml;base64,${btoa(svgButtonMarkup)}')`}} className="contact-button"> Send
           <Send/>
           </button>
-        </div>
+        </form>
       </div>
       <footer>
         <svg xmlns="http://www.w3.org/2000/svg" width="21" height="22" viewBox="0 0 21 22" fill="none">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M5.25 0.5C2.35051 0.5 0 2.85051 0 5.75V11V21.5H10.5V16.25C10.5 19.1495 12.8505 21.5 15.75 21.5H21V11H15.75C18.6495 11 21 8.6495 21 5.75C21 2.85051 18.6495 0.5 15.75 0.5H10.5H5.25ZM10.5 11V16.25C10.5 13.3505 8.1495 11 5.25 11H10.5Z" fill="#48494C"/>
+          <path fillRule="evenodd" clipRule="evenodd" d="M5.25 0.5C2.35051 0.5 0 2.85051 0 5.75V11V21.5H10.5V16.25C10.5 19.1495 12.8505 21.5 15.75 21.5H21V11H15.75C18.6495 11 21 8.6495 21 5.75C21 2.85051 18.6495 0.5 15.75 0.5H10.5H5.25ZM10.5 11V16.25C10.5 13.3505 8.1495 11 5.25 11H10.5Z" fill="#48494C"/>
         </svg>
         <div className="footer-content">Designed and Developed by <b>Ralph Laurent</b></div>
       </footer>
@@ -222,7 +249,7 @@ function App() {
         <div className="slider-content">
           <div onClick={scrollToAbout}>about</div>
           <div onClick={scrollToProjects}>projects</div>
-          <div>contact me</div>
+          <div onClick={scrollToContact}>contact me</div>
         </div>
       </div>}
       <ReactTooltip
