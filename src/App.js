@@ -5,6 +5,41 @@ import { data } from './data/data.js'
 import './App.css';
 import axios from "axios";
 
+const LinkedIn = () => {
+  return(
+    <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_155_10)">
+      <rect x="5" y="5" width="36" height="36" fill="white"/>
+      <path d="M36.4167 0H9.58333C4.29142 0 0 4.29142 0 9.58333V36.4167C0 41.7086 4.29142 46 9.58333 46H36.4167C41.7105 46 46 41.7086 46 36.4167V9.58333C46 4.29142 41.7105 0 36.4167 0ZM15.3333 36.4167H9.58333V15.3333H15.3333V36.4167ZM12.4583 12.903C10.6068 12.903 9.10417 11.3888 9.10417 9.522C9.10417 7.65517 10.6068 6.141 12.4583 6.141C14.3098 6.141 15.8125 7.65517 15.8125 9.522C15.8125 11.3888 14.3117 12.903 12.4583 12.903ZM38.3333 36.4167H32.5833V25.6757C32.5833 19.2203 24.9167 19.7091 24.9167 25.6757V36.4167H19.1667V15.3333H24.9167V18.7162C27.5923 13.7597 38.3333 13.3937 38.3333 23.4619V36.4167Z" fill="#48494C"/>
+    </g>
+    <defs>
+      <clipPath id="clip0_155_10">
+      <rect width="46" height="46" fill="white"/>
+      </clipPath>
+    </defs>
+    </svg>
+  )
+}
+
+const Resume = () => {
+  return(
+    <svg width="34" height="46" viewBox="0 0 34 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_258_88)">
+      <path d="M6.79543 23.5226H26.659V27.1817H6.79543V23.5226Z" fill="white"/>
+      <path d="M6.79543 29.7953H21.4317V33.4544H6.79543V29.7953Z" fill="white"/>
+      <path d="M21.9545 11.4999L28.2611 12.6918L33.4544 11.4999L21.9545 0L20.368 5.45202L21.9545 11.4999Z" fill="#262626"/>
+      <path d="M6.79543 17.2499H26.659V20.909H6.79543V17.2499Z" fill="white"/>
+      <path d="M21.9544 11.4999V0H3.13635C1.40352 0 0 1.40352 0 3.13635V42.8634C0 44.5963 1.40352 45.9998 3.13635 45.9998H30.318C32.0509 45.9998 33.4544 44.5963 33.4544 42.8634V11.4999H21.9544ZM20.909 32.9317H7.31815V30.318H20.909V32.9317ZM26.1362 26.659H7.31815V24.0453H26.1362V26.659ZM26.1362 20.3863H7.31815V17.7726H26.1362V20.3863Z" fill="#48494C"/>
+    </g>
+    <defs>
+      <clipPath id="clip0_258_88">
+      <rect width="33.4545" height="46" fill="white"/>
+      </clipPath>
+    </defs>
+    </svg>
+  )
+}
+
 function App() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
@@ -51,6 +86,18 @@ function App() {
   <feBlend mode="color-dodge" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" in2="blur" result="blend"></feBlend>
   
 </filter></defs><rect width="150" height="45" fill="url(#ffflux-gradient)" filter="url(#ffflux-filter)"></rect></svg>
+  `
+
+  const svgResume = `
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 700 700" width="700" height="700"><defs><radialGradient id="ffflux-gradient">
+      <stop offset="0%" stop-color="hsl(37, 91%, 55%)"></stop>
+      <stop offset="100%" stop-color="hsl(353, 98%, 41%)"></stop>
+    </radialGradient><filter id="ffflux-filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+  <feTurbulence type="fractalNoise" baseFrequency="0.005 0.003" numOctaves="2" seed="141" stitchTiles="stitch" x="0%" y="0%" width="100%" height="100%" result="turbulence"></feTurbulence>
+  <feGaussianBlur stdDeviation="20 0" x="0%" y="0%" width="100%" height="100%" in="turbulence" edgeMode="duplicate" result="blur"></feGaussianBlur>
+  <feBlend mode="color-dodge" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" in2="blur" result="blend"></feBlend>
+  
+</filter></defs><rect width="700" height="700" fill="url(#ffflux-gradient)" filter="url(#ffflux-filter)"></rect></svg>
   `
 
   const changeTheme = () => {
@@ -161,9 +208,11 @@ function App() {
     <div className="container">
       <nav id="navbar">
       <div className="nav">
-          <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none">
-            <path fillRule="evenodd" clipRule="evenodd" d="M7.625 0.5C3.41383 0.5 0 3.91383 0 8.125V15.75V31H15.25V23.375C15.25 27.5862 18.6638 31 22.875 31H30.5V15.75H22.875C27.0862 15.75 30.5 12.3362 30.5 8.125C30.5 3.91383 27.0862 0.5 22.875 0.5H15.25H7.625ZM15.25 15.75V23.375C15.25 19.1638 11.8362 15.75 7.625 15.75H15.25Z" fill={theme === "light" ? "black" : "white"}/>
-          </svg>
+          <div className="clickable">
+            <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none">
+              <path fillRule="evenodd" clipRule="evenodd" d="M7.625 0.5C3.41383 0.5 0 3.91383 0 8.125V15.75V31H15.25V23.375C15.25 27.5862 18.6638 31 22.875 31H30.5V15.75H22.875C27.0862 15.75 30.5 12.3362 30.5 8.125C30.5 3.91383 27.0862 0.5 22.875 0.5H15.25H7.625ZM15.25 15.75V23.375C15.25 19.1638 11.8362 15.75 7.625 15.75H15.25Z" fill={theme === "light" ? "black" : "white"}/>
+            </svg>
+          </div>
           <div className="nav-buttons">
             <button onClick={scrollToAbout} className={theme === "light" ? "empty-button light" : "empty-button"}>about</button>
             <button onClick={scrollToProjects} className={theme === "light" ? "empty-button light" : "empty-button"}>projects</button>
@@ -238,10 +287,20 @@ function App() {
         </form>
       </div>
       <footer>
-        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="22" viewBox="0 0 21 22" fill="none">
-          <path fillRule="evenodd" clipRule="evenodd" d="M5.25 0.5C2.35051 0.5 0 2.85051 0 5.75V11V21.5H10.5V16.25C10.5 19.1495 12.8505 21.5 15.75 21.5H21V11H15.75C18.6495 11 21 8.6495 21 5.75C21 2.85051 18.6495 0.5 15.75 0.5H10.5H5.25ZM10.5 11V16.25C10.5 13.3505 8.1495 11 5.25 11H10.5Z" fill="#48494C"/>
-        </svg>
-        <div className="footer-content">Designed and Developed by <b>Ralph Laurent</b></div>
+        <div className="footer-container">
+          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="22" viewBox="0 0 21 22" fill="none">
+            <path fillRule="evenodd" clipRule="evenodd" d="M5.25 0.5C2.35051 0.5 0 2.85051 0 5.75V11V21.5H10.5V16.25C10.5 19.1495 12.8505 21.5 15.75 21.5H21V11H15.75C18.6495 11 21 8.6495 21 5.75C21 2.85051 18.6495 0.5 15.75 0.5H10.5H5.25ZM10.5 11V16.25C10.5 13.3505 8.1495 11 5.25 11H10.5Z" fill="#48494C"/>
+          </svg>
+          <div className="footer-content">Designed and Developed by <b>Ralph Laurent</b></div>
+        </div>
+        <div className="footer-icon-container">
+        <div className='clickable' onClick={() => redirectToExternalSite("https://docs.google.com/document/d/168mFegzs2ylH4ChNIMtmZaGG27AtmtHckcvTbJWAzqk/edit?usp=sharing")}>
+          <Resume/>
+        </div>
+        <div className='clickable' onClick={() => redirectToExternalSite("https://www.linkedin.com/in/ralph-laurent-821622234/?profileId=ACoAADp3_BkBHnf5I4HGXi8JF1oRlvkxQV-J7QA")}>
+          <LinkedIn/>
+        </div>
+        </div>
       </footer>
      {viewingHeader && <div onClick={scrollToAbout} className="go-down">
         <ArrowDown className="arrow-down"/>

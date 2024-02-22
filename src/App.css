@@ -440,6 +440,12 @@ footer{
   background-color: black;
   padding: 20px;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-container{
+  display: flex;
   flex-direction: column;
   gap: 8px;
 }
@@ -447,6 +453,15 @@ footer{
 .footer-content{
   color: #48494C;
   text-align: start;
+}
+
+.footer-icon-container{
+  display: flex;
+  gap: 16px
+}
+
+.clickable:hover{
+  cursor: pointer;
 }
 
 .slider{
